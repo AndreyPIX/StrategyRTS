@@ -13,6 +13,7 @@ namespace StrategyRTS.Colliders
 		public override void SetMaster(GameObject master)
 		{
 			camera = (Camera)master;
+			this.master = master;
 			rectangle = new Rectangle(0, 0, camera.Width, camera.Height);
 		}
 

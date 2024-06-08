@@ -58,6 +58,10 @@ namespace StrategyRTS
 		public override void Draw(SpriteBatch spriteBatch)
 		{
 			base.Draw(spriteBatch);
+			foreach (var collider in colliders)
+			{
+				collider.Draw(spriteBatch);
+			}
 		}
 	}
 }

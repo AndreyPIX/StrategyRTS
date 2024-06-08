@@ -1,5 +1,5 @@
 ﻿
-namespace StrategyRTS.GameMath
+namespace StrategyRTS.GameMaths
 {
 	public class BilinearInterpolation
 	{

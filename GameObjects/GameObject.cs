@@ -8,16 +8,6 @@ namespace StrategyRTS.GameObjects
     public class GameObject
     {
 		protected BaseCollider collider;
-		protected Rectangle? sourseRentangle;
-		protected Texture2D texture;
-		protected Vector2 lastMove;
-		protected Vector2 position;
-        protected Vector2 velocity;
-		protected Vector2 origin;
-		protected Vector2 scale;
-		protected float angle;
-		protected float rotationVelocity;
-
 		public BaseCollider Collider
 		{
 			get
@@ -25,36 +15,55 @@ namespace StrategyRTS.GameObjects
 				return collider;
 			}
 		}
+
+		protected Rectangle? sourseRentangle;
+
+		protected Texture2D texture;
 		public Texture2D Texture
-        {
+		{
 			get { return texture; }
 		}
+
+		protected Vector2 lastMove;
 		public Vector2 LastMove
 		{
 			get { return lastMove; }
 		}
+
+		protected Vector2 position;
 		public Vector2 Position
-        {
-            get
-            {
-                return position;
-            }
-        }
+		{
+			get
+			{
+				return position;
+			}
+		}
+
+		protected Vector2 velocity;
+
+		protected Vector2 origin;
+
+		protected Vector2 scale;
 		public Vector2 Scale
 		{
-            get
-            {
-                return scale;
-            }
+			get
+			{
+				return scale;
+			}
 			set
 			{
 				scale = value;
 			}
 		}
+
+		protected float angle;
 		public float Angle
 		{
 			get { return angle; }
 		}
+
+		protected float rotationVelocity;
+
 		public bool HasCollider
 		{
 			get
@@ -63,27 +72,34 @@ namespace StrategyRTS.GameObjects
 			}
 		}
 
+		private int collisionIndex;
+
 		public GameObject()
         {
-            position = new Vector2(0);
-            sourseRentangle = null;
-            angle = 0;
-            origin = new Vector2(0);
-            scale = new Vector2(1);
-        }
+			DefaultSetting();
+		}
         public GameObject(Texture2D texture) : this()
         {
             this.texture = texture;
         }
 
+		public void DefaultSetting()
+		{
+			position = new Vector2(0);
+			sourseRentangle = null;
+			angle = 0;
+			origin = new Vector2(0);
+			scale = new Vector2(1);
+		}
 		public void SetPosition(Vector2 position)
 		{
 			this.position = position;
 		}
-		public void AddCollider<T>() where T : BaseCollider, new()
+		public void AddCollider<T>(int collisionIndex = 0) where T : BaseCollider, new()
 		{
 			collider = new T();
 			collider.SetMaster(this);
+			this.collisionIndex = collisionIndex;
 		}
 		public void UndoMove()
 		{

@@ -25,7 +25,10 @@ namespace StrategyRTS.Menagers
 		public virtual void Draw(SpriteBatch spriteBatch)
 		{
 			foreach (var item in list)
+			{
+				if (item.Texture == null) continue;
 				item.Draw(spriteBatch);
+			}
 		}
 	}
 }

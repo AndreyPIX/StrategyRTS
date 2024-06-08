@@ -7,12 +7,18 @@ namespace StrategyRTS.Colliders
 {
 	public abstract class BaseCollider
 	{
+		private Color lineColor;
+		public Color LineColor
+		{
+			get { return lineColor; }
+			set { lineColor = value; }
+		}
 		protected GameObject master;
 		public GameObject Master
 		{
 			get { return master; }
 		}
-		public abstract void Draw(SpriteBatch spriteBatch); // Для визуального тестирования
+		public abstract void Draw(SpriteBatch spriteBatch);
 		public virtual void SetMaster(GameObject master)
 		{
 			this.master = master;

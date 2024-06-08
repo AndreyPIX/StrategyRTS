@@ -1,6 +1,6 @@
 ﻿
 using SharpDX;
-using StrategyRTS.GameMath;
+using StrategyRTS.GameMaths;
 using System;
 
 namespace StrategyRTS.ProceduralGeneration

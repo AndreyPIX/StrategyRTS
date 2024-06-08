@@ -12,7 +12,7 @@ namespace StrategyRTS
 		private GraphicsDeviceManager graphics;
 		private SpriteBatch spriteBatch;
 		private GameEngine engine;
-		private GameScene1 gameScene1;
+		private GameScene2 gameScene;
 		public Game1()
 		{
 			graphics = new GraphicsDeviceManager(this);
@@ -24,15 +24,15 @@ namespace StrategyRTS
 		protected override void Initialize()
 		{
 			engine = new GameEngine();
-			gameScene1 = new GameScene1(engine, graphics);
+			gameScene = new GameScene2(engine, graphics);
 			base.Initialize();
-			gameScene1.Initialize();
+			gameScene.Initialize();
 		}
 		protected override void LoadContent()
 		{
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 			Globals.VideoCard = GraphicsDevice;
-			gameScene1.LoadContent(Content);
+			gameScene.LoadContent(Content);
 		}
 		protected override void Update(GameTime gameTime)
 		{
@@ -45,7 +45,7 @@ namespace StrategyRTS
 		{
 			GraphicsDevice.Clear(Color.Black);
 			spriteBatch.Begin();
-			gameScene1.Draw(spriteBatch);
+			gameScene.Draw(spriteBatch);
 			spriteBatch.End();
 			base.Draw(gameTime);
 		}

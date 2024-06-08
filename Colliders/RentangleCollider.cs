@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using StrategyRTS.GameMaths;
 using StrategyRTS.GameObjects;
 
 namespace StrategyRTS.Colliders
@@ -11,16 +12,8 @@ namespace StrategyRTS.Colliders
 		public override void SetMaster(GameObject master)
 		{
 			base.SetMaster(master);
-            if (master.Texture != null )
-            {
-                Texture2D tex = master.Texture;
-                rectangle = new Rectangle(0, 0, tex.Width, tex.Height);
-            }
-            else
-            {
-                Map masterMap = (Map)master;
-                rectangle = new Rectangle(0, 0, masterMap.Width, masterMap.Height);
-            }
+			Texture2D tex = master.Texture;
+			rectangle = new Rectangle(0, 0, tex.Width, tex.Height);
         }
 		public override Rectangle GetBounds()
 		{
@@ -35,16 +28,14 @@ namespace StrategyRTS.Colliders
 		{
             Rectangle rect1 = this.GetBounds();
             Rectangle rect2 = collider.GetBounds();
-            if (inversion == inversion)
-            {
-
-            }
             return rect1.Intersects(rect2);
         }
 
 		public override void Draw(SpriteBatch spriteBatch)
 		{
-            
+			Rectangle rectangle = this.GetBounds();
+
+			GameMath.DrawRectangle(spriteBatch, rectangle, master.Position, LineColor);
 		}
 	}
 }

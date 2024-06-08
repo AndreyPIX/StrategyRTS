@@ -5,6 +5,7 @@ using StrategyRTS.Controle;
 using StrategyRTS.GameObjects;
 using Microsoft.Xna.Framework.Graphics;
 using StrategyRTS.Colliders;
+using StrategyRTS.Experemental;
 
 namespace StrategyRTS.GameScenes
 {
@@ -16,13 +17,13 @@ namespace StrategyRTS.GameScenes
         }
         public override void Initialize()
         {
-			GameObject map = new GameObject();
-            map.AddCollider<RentangleCollider>();
-			engine.Add(map);
+			Camera camera = new Camera(graphics);
+            camera.AddCollider<RentangleColliderCamera>();
+			engine.Add(camera);
 
-			GameObject camera = new GameObject();
-            camera.AddCollider<RentangleCollider>();
-            engine.Add(camera);
+			KeyboardCameraController cameraController = new KeyboardCameraController(new KeyboardLayoutCameraControle());
+			cameraController.Attach(camera);
+            engine.Add(cameraController);
 		}
         public override void LoadContent(ContentManager content)
         {

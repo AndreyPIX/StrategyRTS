@@ -26,7 +26,7 @@ namespace StrategyRTS.Menagers
 		{
 			foreach (var item in list)
 			{
-				if (item.Texture == null) continue;
+				if (!item.IsTexture) continue;
 				item.Draw(spriteBatch);
 			}
 		}

@@ -24,6 +24,12 @@ namespace StrategyRTS.GameObjects
 			get { return texture; }
 		}
 
+		protected bool isTexture;
+		public bool IsTexture
+		{
+			get => isTexture;
+		}
+
 		protected Vector2 lastMove;
 		public Vector2 LastMove
 		{
@@ -90,6 +96,11 @@ namespace StrategyRTS.GameObjects
 			angle = 0;
 			origin = new Vector2(0);
 			scale = new Vector2(1);
+			isTexture = true;
+		}
+		public void NullTexture()
+		{
+			isTexture = false;
 		}
 		public void SetPosition(Vector2 position)
 		{

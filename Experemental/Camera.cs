@@ -20,8 +20,8 @@ namespace StrategyRTS.Experemental
 		public Camera(GraphicsDeviceManager graphics)
         {
             DefaultSetting();
-            graphics.PreferredBackBufferHeight = height;
-            graphics.PreferredBackBufferWidth = width;
+			height = graphics.PreferredBackBufferHeight / 4;
+			width = graphics.PreferredBackBufferWidth / 4;
         }
     }
 }

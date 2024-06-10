@@ -30,21 +30,22 @@ namespace StrategyRTS
 		}
 		private void CheckCollisions()
 		{
-			bool hasCollision;
-			GameObject objI;
-			GameObject objY;
 			for (int i = 0;  i < colliders.Count; i++)
 			{
-				objI = colliders[i].Master;
+				GameObject objI = colliders[i].Master;
 				for (int j = 0; j <  colliders.Count; j++)
 				{
 					if (i == j) continue;
-					objY = colliders[j].Master;
-					hasCollision = colliders[i].IsCollision(colliders[j]);
+					GameObject objY = colliders[j].Master;
+                    bool hasCollision = colliders[i].IsCollision(colliders[j]);
 					if (hasCollision)
 					{
+						colliders[i].LineColor = Color.Red;
 						objI.UndoMove();
-						objY.UndoMove();
+					}
+					else
+					{
+						colliders[i].LineColor = Color.White;
 					}
 				}
 			}
@@ -54,7 +55,8 @@ namespace StrategyRTS
 			base.Update(gameTime);
             foreach (var item in controllers)
 				item.Update(gameTime);
-        }
+			CheckCollisions();
+		}
 		public override void Draw(SpriteBatch spriteBatch)
 		{
 			base.Draw(spriteBatch);

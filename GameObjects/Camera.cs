@@ -16,6 +16,12 @@ namespace StrategyRTS.GameObjects
             get { return height; }
         }
 
+        public Camera(int width, int height)
+        {
+            this.width = width;
+            this.height = height;
+        }
+
         public Camera(GraphicsDeviceManager graphics)
         {
             DefaultSetting();

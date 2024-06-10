@@ -39,7 +39,7 @@ namespace StrategyRTS.GameScenes
 			map.CreateMap(7);
 			map.AddCollider<RentangleColliderMap>();
 
-			Camera camera = new Camera(graphics);
+			Camera camera = new Camera(500, 500);
 			camera.SetPosition(new Vector2(500, 500));
 			camera.Texture = TextureGenerator.CreateFillTexture(500, 500, Color.Red);
             camera.AddCollider<RentangleColliderCamera>();

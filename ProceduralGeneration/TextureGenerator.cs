@@ -24,13 +24,12 @@ namespace StrategyRTS.ProceduralGeneration
         public static Texture2D CreateFillTexture(int height, int width, Color color)
         {
             Color[] pixels = new Color[height * width];
-            for (int i = 0; i < width; i++)
+            for (int i = 0; i < width * height; i++)
             {
-                for (int j = 0; j < height; j++)
-                    pixels[i * width + j * height] = color;
+                pixels[i] = color;
             }
 
-            Texture2D texture = new Texture2D(Globals.VideoCard, 3, 3);
+            Texture2D texture = new Texture2D(Globals.VideoCard, width, height);
             texture.SetData(pixels);
             return texture;
         }

@@ -12,7 +12,7 @@ namespace StrategyRTS
 		private GraphicsDeviceManager graphics;
 		private SpriteBatch spriteBatch;
 		private GameEngine engine;
-		private GameScene2 gameScene;
+		private GameSceneBase gameScene;
 		public Game1()
 		{
 			graphics = new GraphicsDeviceManager(this);
@@ -24,7 +24,7 @@ namespace StrategyRTS
 		protected override void Initialize()
 		{
 			engine = new GameEngine();
-			gameScene = new GameScene2(engine, graphics);
+			gameScene = new GameScene1(engine, graphics);
 			base.Initialize();
 			gameScene.Initialize();
 		}

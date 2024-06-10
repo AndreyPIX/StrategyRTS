@@ -2,8 +2,10 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using StrategyRTS.Colliders;
 using StrategyRTS.Controle;
 using StrategyRTS.GameObjects;
+using StrategyRTS.ProceduralGeneration;
 
 namespace StrategyRTS.GameScenes
 {
@@ -29,20 +31,24 @@ namespace StrategyRTS.GameScenes
 			Map map = new(graphics);
 			map.Scale = new Vector2(0.4f);
 			map.SetSizeMap(256 * 2, 256 * 2);
+			map.SetPosition(new Vector2(-100, -100));
 			map.AddCell(water);
 			map.AddCell(sand);
 			map.AddCell(grass);
 			map.AddCell(rock);
 			map.CreateMap(7);
+			map.AddCollider<RentangleColliderMap>();
 
-			GameObject camera = new GameObject();
-			
+			Camera camera = new Camera(graphics);
+			camera.SetPosition(new Vector2(500, 500));
+			camera.Texture = TextureGenerator.CreateFillTexture(500, 500, Color.Red);
+            camera.AddCollider<RentangleColliderCamera>();
 
 			KeyboardCameraController CameraControlle = new KeyboardCameraController(new KeyboardLayoutCameraControle());
 			CameraControlle.Attach(map);
 
 			engine.Add(map);
-			//engine.Add(camera);
+			engine.Add(camera);
 			engine.Add(CameraControlle);
 		}
 		public override void LoadContent(ContentManager content)

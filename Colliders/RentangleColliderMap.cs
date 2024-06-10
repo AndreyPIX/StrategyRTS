@@ -19,8 +19,13 @@ namespace StrategyRTS.Colliders
 
 		public override Rectangle GetBounds()
 		{
-			return base.GetBounds();
-		}
+            Rectangle rectangle = new Rectangle();
+            rectangle.Width = map.Width;
+			rectangle.Height = map.Height;
+			rectangle.X = (int)map.Position.X - rectangle.Width / 2;
+			rectangle.Y = (int)map.Position.Y - rectangle.Height / 2;
+            return rectangle;
+        }
 
 		private bool Intersects(Rectangle rect1, Rectangle rect2)
 		{

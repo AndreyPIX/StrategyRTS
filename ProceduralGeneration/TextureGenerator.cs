@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using StrategyRTS.Shared;
 using System;
+using System.Reflection.Metadata.Ecma335;
 
 namespace StrategyRTS.ProceduralGeneration
 {
@@ -16,6 +17,19 @@ namespace StrategyRTS.ProceduralGeneration
                 Color.White, Color.White, Color.White,
                 Color.Transparent, Color.White, Color.Transparent
             };
+            Texture2D texture = new Texture2D(Globals.VideoCard, 3, 3);
+            texture.SetData(pixels);
+            return texture;
+        }
+        public static Texture2D CreateFillTexture(int height, int width, Color color)
+        {
+            Color[] pixels = new Color[height * width];
+            for (int i = 0; i < width; i++)
+            {
+                for (int j = 0; j < height; j++)
+                    pixels[i * width + j * height] = color;
+            }
+
             Texture2D texture = new Texture2D(Globals.VideoCard, 3, 3);
             texture.SetData(pixels);
             return texture;

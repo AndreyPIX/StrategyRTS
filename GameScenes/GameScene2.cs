@@ -5,7 +5,6 @@ using StrategyRTS.Controle;
 using StrategyRTS.GameObjects;
 using Microsoft.Xna.Framework.Graphics;
 using StrategyRTS.Colliders;
-using StrategyRTS.Experemental;
 using SharpDX.MediaFoundation;
 
 namespace StrategyRTS.GameScenes

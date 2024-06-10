@@ -21,6 +21,7 @@ namespace StrategyRTS.GameObjects
 		protected Texture2D texture;
 		public Texture2D Texture
 		{
+			set { texture = value; }
 			get { return texture; }
 		}
 

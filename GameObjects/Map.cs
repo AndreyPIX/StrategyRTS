@@ -113,7 +113,7 @@ namespace StrategyRTS.GameObjects
                 {
                     list[map[y, x, 1]].SetPosition(new Vector2(scale.X * size * x + position.X, scale.Y * size * y + position.Y));
                     list[map[y, x, 1]].Scale = scale;
-                    list[map[y, x, 1]].Draw(spriteBatch);
+                    //list[map[y, x, 1]].Draw(spriteBatch);
                 }
             }
         }

@@ -38,7 +38,7 @@ namespace StrategyRTS.GameMaths
 
 		public static void DrawRectangle(SpriteBatch batch, Rectangle rectangle, Vector2 center, Color color, int thickness = 1)
 		{
-			DrawRectangle(batch, (int)(center.X - rectangle.Width / 2), (int)(center.Y - rectangle.Height / 2), rectangle.Width, rectangle.Height, color, thickness);
+			DrawRectangle(batch, (int)(center.X /*- rectangle.Width / 2*/), (int)(center.Y /*- rectangle.Height / 2*/), rectangle.Width, rectangle.Height, color, thickness);
 		}
 	}
 }

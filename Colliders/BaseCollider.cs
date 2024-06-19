@@ -23,7 +23,7 @@ namespace StrategyRTS.Colliders
 		{
 			this.master = master;
 		}
-		public abstract bool IsCollision(BaseCollider collider, bool inversion = false);
+		public abstract bool IsCollision(BaseCollider collider);
 		public abstract Rectangle GetBounds();
 	}
 }

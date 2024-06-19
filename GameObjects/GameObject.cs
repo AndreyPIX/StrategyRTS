@@ -136,10 +136,12 @@ namespace StrategyRTS.GameObjects
         {
             position += delta;
 			lastMove = delta;
+			hasMovement = (delta.X != 0 || delta.Y != 0);
 		}
 		public virtual void Update(GameTime gameTime) 
         {
 			position += velocity;
+			
 		}
         public virtual void Draw(SpriteBatch spriteBatch)
         {

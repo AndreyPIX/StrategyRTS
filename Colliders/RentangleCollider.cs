@@ -24,7 +24,7 @@ namespace StrategyRTS.Colliders
             rectangle.Y = (int)(master.Position.Y - rectangle.Height / 2);
             return rectangle;
         }
-		public override bool IsCollision(BaseCollider collider, bool inversion = false)
+		public override bool IsCollision(BaseCollider collider)
 		{
             Rectangle rect1 = this.GetBounds();
             Rectangle rect2 = collider.GetBounds();

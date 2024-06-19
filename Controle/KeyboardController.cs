@@ -35,7 +35,6 @@ namespace StrategyRTS.Controle
 					delta.Y = movingSpeed;
 					break;
 			}
-			delta.X = -movingSpeed;
 			return delta;
 		}
 		public override void Update(GameTime gameTime)

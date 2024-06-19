@@ -32,7 +32,7 @@ namespace StrategyRTS.Colliders
 			return rect1.Left < rect2.Left || rect1.Right > rect2.Right || rect1.Top < rect2.Top || rect1.Bottom > rect2.Bottom;
 		}
 
-		public override bool IsCollision(BaseCollider collider, bool inversion = false)
+		public override bool IsCollision(BaseCollider collider)
 		{
 			Rectangle rect1 = this.GetBounds();
 			Rectangle rect2 = collider.GetBounds();

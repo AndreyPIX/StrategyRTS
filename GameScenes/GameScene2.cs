@@ -23,7 +23,6 @@ namespace StrategyRTS.GameScenes
             engine.Add(GreenSquare);
             GameObject BlueSquare = new GameObject(TextureGenerator.CreateFillTexture(500, 500, Color.Blue));
             BlueSquare.SetPosition(new Vector2(900, 100));
-            BlueSquare.SetVelocity(new Vector2(-2, 0.2f));
             BlueSquare.AddCollider<RentangleCollider>();
             KeyboardController controller = new KeyboardController(new KeyboardLayoutCameraControle());
             controller.Attach(BlueSquare);

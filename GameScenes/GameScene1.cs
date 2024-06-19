@@ -31,12 +31,12 @@ namespace StrategyRTS.GameScenes
 			Map map = new(graphics);
 			map.Scale = new Vector2(0.4f);
 			map.SetSizeMap(256 * 2, 256 * 2);
-			map.SetPosition(new Vector2(100, 100));
 			map.AddCell(water);
 			map.AddCell(sand);
 			map.AddCell(grass);
 			map.AddCell(rock);
 			map.CreateMap(7);
+			map.SetPosition(new Vector2(100, 100));
 			map.AddCollider<RentangleColliderMap>();
 
 			Camera camera = new Camera(500, 500);

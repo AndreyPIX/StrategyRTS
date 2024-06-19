@@ -20,8 +20,8 @@ namespace StrategyRTS.Colliders
 		public override Rectangle GetBounds()
 		{
             Rectangle rectangle = new Rectangle();
-            rectangle.Width = map.Width;
-			rectangle.Height = map.Height;
+            rectangle.Width = this.rectangle.Width;
+			rectangle.Height = this.rectangle.Height;
 			rectangle.X = (int)map.Position.X /*- rectangle.Width / 2*/;
 			rectangle.Y = (int)map.Position.Y /*- rectangle.Height / 2*/;
             return rectangle;

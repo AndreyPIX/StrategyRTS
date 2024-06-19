@@ -24,7 +24,7 @@ namespace StrategyRTS
 		protected override void Initialize()
 		{
 			engine = new GameEngine();
-			gameScene = new GameScene1(engine, graphics);
+			gameScene = new GameScene2(engine, graphics);
 			base.Initialize();
 			gameScene.Initialize();
 		}

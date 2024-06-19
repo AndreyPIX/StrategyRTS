@@ -79,6 +79,16 @@ namespace StrategyRTS.GameObjects
 			}
 		}
 
+		
+
+		protected bool hasMovement;
+
+		public bool HasMovement
+		{
+			get { return hasMovement; }
+			set { hasMovement = value; }
+		}
+
 		private int collisionIndex;
 
 		public GameObject()
@@ -107,6 +117,10 @@ namespace StrategyRTS.GameObjects
 		{
 			this.position = position;
 		}
+		public void SetVelocity(Vector2 velocity)
+		{
+			this.velocity = velocity;
+		}
 		public void AddCollider<T>(int collisionIndex = 0) where T : BaseCollider, new()
 		{
 			collider = new T();
@@ -115,7 +129,7 @@ namespace StrategyRTS.GameObjects
 		}
 		public void UndoMove()
 		{
-			position -= lastMove;
+			position -= lastMove + velocity;
 			lastMove = Vector2.Zero;
 		}
 		public void Move(Vector2 delta)
@@ -123,11 +137,10 @@ namespace StrategyRTS.GameObjects
             position += delta;
 			lastMove = delta;
 		}
-        
 		public virtual void Update(GameTime gameTime) 
         {
-
-        }
+			position += velocity;
+		}
         public virtual void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture, position, sourseRentangle, Color.White, angle, origin, scale, SpriteEffects.None, 1);

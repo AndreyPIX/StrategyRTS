@@ -11,6 +11,13 @@ namespace StrategyRTS.Controle
 		{
 			this.puppet = puppet;
 		}
+		protected float movingSpeed;
+
+		protected BaseController()
+		{
+			movingSpeed = 1;
+		}
+
 		public abstract void Update(GameTime gameTime);
 	}
 }

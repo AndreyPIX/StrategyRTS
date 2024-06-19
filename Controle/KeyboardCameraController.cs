@@ -10,7 +10,7 @@ namespace StrategyRTS.Controle
 		{
 			this.layout = layout;
 		}
-		protected override void ProcessKeyAction(Keys key)
+		protected override Vector2 ProcessKeyAction(Keys key)
 		{
 			Vector2 delta = new Vector2(0);
 			int speed = 20;
@@ -31,7 +31,7 @@ namespace StrategyRTS.Controle
 					delta.Y = -speed;
 					break;
 			}
-			puppet.Move(delta);
+			return delta;
 		}
 	}
 }

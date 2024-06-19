@@ -74,8 +74,6 @@ namespace StrategyRTS.GameObjects
 			map = world.Smoothing(1, 2);
 			map = world.Superimposition();
 			map = world.ShoreGeneration();
-			position = new Vector2(-156, -156);
-			//SetPosition();
 		}
 		private void Rendering()
 		{

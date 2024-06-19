@@ -15,35 +15,38 @@ namespace StrategyRTS.Controle
 		{
 			this.layout = layout;
 		}
-		protected virtual void ProcessKeyAction(Keys key)
+		protected virtual Vector2 ProcessKeyAction(Keys key)
 		{
 			Vector2 delta = new Vector2(0);
-			int speed = 1;
 			switch (layout.GetActionForKey(key))
 			{
 				case EnumKeyAction.None:
 					break;
 				case EnumKeyAction.MoveRight:
-					delta.X = speed;
+					delta.X = movingSpeed;
 					break;
 				case EnumKeyAction.MoveUp:
-					delta.Y = -speed;
+					delta.Y = -movingSpeed;
 					break;
 				case EnumKeyAction.MoveLeft:
-					delta.X = -speed;
+					delta.X = -movingSpeed;
 					break;
 				case EnumKeyAction.MoveDown:
-					delta.Y = speed;
+					delta.Y = movingSpeed;
 					break;
 			}
-			puppet.Move(delta);
+			delta.X = -movingSpeed;
+			return delta;
 		}
 		public override void Update(GameTime gameTime)
 		{
+			Vector2 delta = new Vector2(0);
 			KeyboardState state = Keyboard.GetState();
 			Keys[] keys = state.GetPressedKeys();
 			foreach (Keys key in keys)
-				ProcessKeyAction(key);
+				delta += ProcessKeyAction(key);
+			puppet.Move(delta);
+			//puppet.Move(new Vector2(-movingSpeed, 0));
 		}
 	}
 }

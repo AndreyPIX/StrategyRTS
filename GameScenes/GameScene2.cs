@@ -4,8 +4,8 @@ using Microsoft.Xna.Framework;
 using StrategyRTS.Controle;
 using StrategyRTS.GameObjects;
 using Microsoft.Xna.Framework.Graphics;
+using StrategyRTS.ProceduralGeneration;
 using StrategyRTS.Colliders;
-using SharpDX.MediaFoundation;
 
 namespace StrategyRTS.GameScenes
 {
@@ -17,17 +17,18 @@ namespace StrategyRTS.GameScenes
         }
         public override void Initialize()
         {
-			Camera camera = new Camera(graphics);
-            camera.NullTexture();
-            camera.SetPosition(new Vector2(300, 300));
-            camera.AddCollider<RentangleColliderCamera>();
-			engine.Add(camera);
-
-			Camera camera2 = new Camera(graphics);
-			camera2.NullTexture();
-            camera2.SetPosition(new Vector2(350, 350));
-			camera2.AddCollider<RentangleColliderCamera>();
-			engine.Add(camera2);
+            GameObject GreenSquare = new GameObject(TextureGenerator.CreateFillTexture(500, 500, Color.Green));
+            GreenSquare.SetPosition(new Vector2(100, 100));
+            GreenSquare.AddCollider<RentangleCollider>();
+            engine.Add(GreenSquare);
+            GameObject BlueSquare = new GameObject(TextureGenerator.CreateFillTexture(500, 500, Color.Blue));
+            BlueSquare.SetPosition(new Vector2(900, 100));
+            BlueSquare.SetVelocity(new Vector2(-2, 0.2f));
+            BlueSquare.AddCollider<RentangleCollider>();
+            KeyboardController controller = new KeyboardController(new KeyboardLayoutCameraControle());
+            controller.Attach(BlueSquare);
+            engine.Add(controller);
+            engine.Add(BlueSquare);
 		}
         public override void LoadContent(ContentManager content)
         {

@@ -3,12 +3,22 @@ namespace StrategyRTS.GameMaths
 {
 	public class BilinearInterpolation
 	{
+		private static int ShiftX(int x, int shift)
+		{
+			return x / shift * shift;
+		}
+		private static int ShiftY(int y, int shift)
+		{
+			return y / shift * shift;
+		}
 		public static float BilinearInterpolationFormula(float[,] heights, int width, int height, int x, int y, int shift)
 		{
-			float z1 = heights[y / shift * shift, x / shift * shift];
-			float z2 = heights[y / shift * shift, (x / shift * shift + shift) % width];
-			float z3 = heights[(y / shift * shift + shift) % height, x / shift * shift];
-			float z4 = heights[(y / shift * shift + shift) % height, (x / shift * shift + shift) % width];
+			int shiftX = ShiftX(x, shift);
+			int shiftY = ShiftY(y, shift);
+			float z1 = heights[shiftY, shiftX];
+			float z2 = heights[shiftY, (shiftX + shift) % width];
+			float z3 = heights[(shiftY + shift) % height, shiftX];
+			float z4 = heights[(shiftY + shift) % height, (shiftX + shift) % width];
 			float formX1 = InterpolateFormula1(x, shift, width);
 			float formX2 = InterpolateFormula2(x, shift, width);
 			float zx1 = formX1 * z1 + formX2 * z2;

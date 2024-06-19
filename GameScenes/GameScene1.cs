@@ -31,17 +31,19 @@ namespace StrategyRTS.GameScenes
 			Map map = new(graphics);
 			map.Scale = new Vector2(0.4f);
 			map.SetSizeMap(256 * 2, 256 * 2);
+
 			map.AddCell(water);
 			map.AddCell(sand);
 			map.AddCell(grass);
 			map.AddCell(rock);
+
 			map.CreateMap(7);
-			map.SetPosition(new Vector2(100, 100));
+			map.SetPosition();
 			map.AddCollider<RentangleColliderMap>();
 
-			Camera camera = new Camera(500, 500);
-			camera.SetPosition(new Vector2(500, 500));
-			camera.Texture = TextureGenerator.CreateFillTexture(500, 500, Color.Red);
+			Camera camera = new Camera(graphics);
+			camera.SetPosition(new Vector2(0, 0));
+			camera.NullTexture();
             camera.AddCollider<RentangleColliderCamera>();
 
 			KeyboardCameraController CameraControlle = new KeyboardCameraController(new KeyboardLayoutCameraControle());

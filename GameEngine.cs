@@ -13,6 +13,13 @@ namespace StrategyRTS
 	{
 		private List<BaseController> controllers;
 		private List<BaseCollider> colliders;
+		private bool hasShowCollider;
+		public bool HasShowCollider
+		{
+			get { return hasShowCollider; }
+			set { hasShowCollider = value; }
+		}
+
 		public GameEngine() : base()
 		{
 			controllers = new List<BaseController>();
@@ -60,6 +67,7 @@ namespace StrategyRTS
 		public override void Draw(SpriteBatch spriteBatch)
 		{
 			base.Draw(spriteBatch);
+			if (hasShowCollider)
 			foreach (var collider in colliders)
 			{
 				collider.Draw(spriteBatch);

@@ -25,8 +25,8 @@ namespace StrategyRTS.GameObjects
         public Camera(GraphicsDeviceManager graphics)
         {
             DefaultSetting();
-            height = graphics.PreferredBackBufferHeight / 4;
-            width = graphics.PreferredBackBufferWidth / 4;
+            height = graphics.PreferredBackBufferHeight;
+            width = graphics.PreferredBackBufferWidth;
         }
     }
 }

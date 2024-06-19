@@ -24,6 +24,7 @@ namespace StrategyRTS
 		protected override void Initialize()
 		{
 			engine = new GameEngine();
+			engine.HasShowCollider = false;
 			gameScene = new GameScene1(engine, graphics);
 			base.Initialize();
 			gameScene.Initialize();

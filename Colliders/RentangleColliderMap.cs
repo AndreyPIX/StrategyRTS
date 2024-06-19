@@ -22,14 +22,14 @@ namespace StrategyRTS.Colliders
             Rectangle rectangle = new Rectangle();
             rectangle.Width = this.rectangle.Width;
 			rectangle.Height = this.rectangle.Height;
-			rectangle.X = (int)map.Position.X /*- rectangle.Width / 2*/;
-			rectangle.Y = (int)map.Position.Y /*- rectangle.Height / 2*/;
+			rectangle.X = (int)map.Position.X;
+			rectangle.Y = (int)map.Position.Y;
             return rectangle;
         }
 
 		private bool Intersects(Rectangle rect1, Rectangle rect2)
 		{
-			return rect1.Left < rect2.Left || rect1.Right > rect2.Right || rect1.Top < rect2.Top || rect1.Bottom > rect2.Bottom;
+			return rect1.Left > rect2.Left || rect1.Right < rect2.Right || rect1.Top > rect2.Top || rect1.Bottom < rect2.Bottom;
 		}
 
 		public override bool IsCollision(BaseCollider collider)

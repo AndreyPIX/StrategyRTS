@@ -21,8 +21,8 @@ namespace StrategyRTS.Colliders
 			Rectangle rectangle = new Rectangle();
             rectangle.Width = (int)(this.rectangle.Width * master.Scale.X);
             rectangle.Height = (int)(this.rectangle.Height * master.Scale.Y);
-            rectangle.X = (int)(master.Position.X /*- rectangle.Width / 2*/);
-            rectangle.Y = (int)(master.Position.Y /*- rectangle.Height / 2*/);
+            rectangle.X = (int)(master.Position.X);
+            rectangle.Y = (int)(master.Position.Y);
             return rectangle;
 		}
 

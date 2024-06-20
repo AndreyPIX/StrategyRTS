@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using StrategyRTS.ProceduralGeneration;
+using StrategyRTS.Shared;
 using System.Collections.Generic;
 
 namespace StrategyRTS.GameObjects
@@ -13,8 +14,8 @@ namespace StrategyRTS.GameObjects
 		{
 			get
 			{
-				float x = graphics.PreferredBackBufferWidth / 2 - size * map.GetLength(1) * scale.X / 2;
-				float y = graphics.PreferredBackBufferHeight / 2 - size * map.GetLength(0) * scale.Y / 2;
+				float x = graphics.PreferredBackBufferWidth / 2 - SizeCell * map.GetLength(1) * scale.X / 2;
+				float y = graphics.PreferredBackBufferHeight / 2 - SizeCell * map.GetLength(0) * scale.Y / 2;
 				return new Vector2(x, y);
 			}
 		}
@@ -23,15 +24,23 @@ namespace StrategyRTS.GameObjects
 		private int minRenderingY;
 		private int maxRenderingX;
 		private int maxRenderingY;
-		private int size = 256;
+		/*private int sizeCell = 256;
+		public int SizeCell
+		{
+			get{ return sizeCell;}
+		}*/
         private int[,,] map;
 		public int Height
 		{
-			get { return (int)(map.GetLength(0) * size * scale.Y); }
+			get { return (int)(map.GetLength(0) * SizeCell * scale.Y); }
 		}
 		public int Width
 		{
-			get { return (int)(map.GetLength(1) * size * scale.X); }
+			get { return (int)(map.GetLength(1) * SizeCell * scale.X); }
+		}
+		public int SizeCell
+		{
+			get { return 256; }
 		}
 		public Map(GraphicsDeviceManager graphics)
 		{
@@ -77,10 +86,10 @@ namespace StrategyRTS.GameObjects
 		}
 		private void Rendering()
 		{
-			minRenderingX = (int)((0 - position.X) / size);
-			minRenderingY = (int)((0 - position.Y) / size);
-			maxRenderingX = (int)((graphics.PreferredBackBufferWidth - position.X) / (size * scale.X) + 1);
-			maxRenderingY = (int)((graphics.PreferredBackBufferHeight - position.Y) / (size * scale.Y) + 1);
+			minRenderingX = (int)((0 - position.X) / SizeCell);
+			minRenderingY = (int)((0 - position.Y) / SizeCell);
+			maxRenderingX = (int)((graphics.PreferredBackBufferWidth - position.X) / (SizeCell * scale.X) + 1);
+			maxRenderingY = (int)((graphics.PreferredBackBufferHeight - position.Y) / (SizeCell * scale.Y) + 1);
 
 			if (minRenderingY < 0)
 				minRenderingY = 0;
@@ -109,7 +118,7 @@ namespace StrategyRTS.GameObjects
             {
 				for (int x = minRenderingX; x < maxRenderingX; x++)
                 {
-                    list[map[y, x, 1]].SetPosition(new Vector2(scale.X * size * x + position.X, scale.Y * size * y + position.Y));
+                    list[map[y, x, 1]].SetPosition(new Vector2(scale.X * SizeCell * x + position.X, scale.Y * SizeCell * y + position.Y));
                     list[map[y, x, 1]].Scale = scale;
                     list[map[y, x, 1]].Draw(spriteBatch);
                 }

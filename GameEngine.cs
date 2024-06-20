@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using StrategyRTS.Colliders;
 using StrategyRTS.Controle;
 using StrategyRTS.GameObjects;
@@ -44,7 +45,8 @@ namespace StrategyRTS
 				{
 					if (i == j) continue;
 					GameObject objY = colliders[j].Master;
-                    bool hasCollision = colliders[i].IsCollision(colliders[j]);
+					if (objI.CollisionIndex != objY.CollisionIndex) continue;
+					bool hasCollision = colliders[i].IsCollision(colliders[j]);
 					if (hasCollision)
 					{
 						colliders[i].LineColor = Color.Red;
@@ -60,8 +62,16 @@ namespace StrategyRTS
 		public override void Update(GameTime gameTime)
 		{
 			base.Update(gameTime);
-            foreach (var item in controllers)
+			KeyboardState state = Keyboard.GetState();
+			if (state.IsKeyDown(Keys.P))
+			{
+				int a = 1;
+				int b = 1;
+				b = a + b;
+			}
+			foreach (var item in controllers)
 				item.Update(gameTime);
+			
 			CheckCollisions();
 		}
 		public override void Draw(SpriteBatch spriteBatch)

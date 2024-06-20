@@ -9,6 +9,8 @@ namespace StrategyRTS.Shared
         /// </summary>
         public static GraphicsDevice VideoCard { get; set; }
 
+		
+
         private static Texture2D textureBullet;
         public static Texture2D TextureBullet
         {
@@ -61,7 +63,5 @@ namespace StrategyRTS.Shared
             }
 			return texturePerlinNoiseBilinearlyInterpolated;
 		}
-
-
 	}
 }

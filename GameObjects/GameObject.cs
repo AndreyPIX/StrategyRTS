@@ -46,6 +46,15 @@ namespace StrategyRTS.GameObjects
 			}
 		}
 
+		protected Vector2 tempPosition;
+		public Vector2 TempPosition
+		{
+			get
+			{
+				return tempPosition;
+			}
+		}
+
 		protected Vector2 velocity;
 
 		protected Vector2 origin;
@@ -79,10 +88,7 @@ namespace StrategyRTS.GameObjects
 			}
 		}
 
-		
-
 		protected bool hasMovement;
-
 		public bool HasMovement
 		{
 			get { return hasMovement; }
@@ -90,6 +96,11 @@ namespace StrategyRTS.GameObjects
 		}
 
 		private int collisionIndex;
+		public int CollisionIndex
+		{
+			get { return collisionIndex; }
+			set { collisionIndex = value; }
+		}
 
 		public GameObject()
         {
@@ -112,6 +123,10 @@ namespace StrategyRTS.GameObjects
 		public void NullTexture()
 		{
 			isTexture = false;
+		}
+		public void SetTempPosition(Vector2 tempPosition)
+		{
+			this.tempPosition = tempPosition;
 		}
 		public void SetPosition(Vector2 position)
 		{

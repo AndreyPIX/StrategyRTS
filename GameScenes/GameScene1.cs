@@ -27,7 +27,7 @@ namespace StrategyRTS.GameScenes
 		}
 		public override void Initialize()
 		{
-			Vector2 scale = new Vector2(1f);
+			Vector2 scale = new Vector2(0.25f);
 
 			GameObject water = new GameObject(textureWater);
 			GameObject sand = new GameObject(textureSand);
@@ -57,7 +57,6 @@ namespace StrategyRTS.GameScenes
 
 			KeyboardCameraController cameraControlle = new KeyboardCameraController(new KeyboardLayoutCameraControle());
 			cameraControlle.Attach(map);
-
 
 			Frame frame = new Frame(textureFrame, graphics, map);
 			frame.Scale = scale;

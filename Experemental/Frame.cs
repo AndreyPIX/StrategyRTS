@@ -24,24 +24,25 @@ namespace StrategyRTS.Experemental
 		public Frame(Texture2D texture, GraphicsDeviceManager graphics, Map map) : base(texture)
 		{
 			this.map = map;
-			this.graphics = graphics; 
+			this.graphics = graphics;
+			scale = map.Scale;
 		}
 		
 		public override void Update(GameTime gameTime)
 		{
 			for (int x = 0; x < graphics.PreferredBackBufferWidth; x++)
 			{
-				if (tempPosition.X < DrawingCoordinateFirstCell.X + (x + 1) * map.SizeCell)
+				if (tempPosition.X < DrawingCoordinateFirstCell.X + (x + 1) * map.SizeCell * scale.X)
 				{
-					position.X = DrawingCoordinateFirstCell.X + x * map.SizeCell;
+					position.X = DrawingCoordinateFirstCell.X + x * map.SizeCell * scale.X;
 					break;
 				}
 			}
 			for (int y = 0; y < graphics.PreferredBackBufferWidth; y++)
 			{
-				if (tempPosition.Y < DrawingCoordinateFirstCell.Y + (y + 1) * map.SizeCell)
+				if (tempPosition.Y < DrawingCoordinateFirstCell.Y + (y + 1) * map.SizeCell * scale.Y)
 				{
-					position.Y = DrawingCoordinateFirstCell.Y + y * map.SizeCell;
+					position.Y = DrawingCoordinateFirstCell.Y + y * map.SizeCell * scale.Y;
 					break;
 				}
 			}

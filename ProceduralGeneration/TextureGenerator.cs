@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using StrategyRTS.Shared;
 using System;
-using System.Reflection.Metadata.Ecma335;
 
 namespace StrategyRTS.ProceduralGeneration
 {
@@ -69,6 +68,31 @@ namespace StrategyRTS.ProceduralGeneration
             texture.SetData(pixels);
             return texture;
         }
+        public static Texture2D GenerateTexture(int width, Texture2D sideOfTexture)
+        {
+            int height = sideOfTexture.Height;
+            int minWidth = sideOfTexture.Width * 2;
+            if (minWidth > width)
+                width = minWidth;
+            Color[] sideOfSprite = new Color[sideOfTexture.Width * sideOfTexture.Height];
+            sideOfTexture.GetData<Color>(sideOfSprite);
+            Color[] sprite = new Color[width * height];
+			for (int y = 0; y < height; y++)
+			{
+				for (int x = 0; x < width; x++)
+				{
+                    if (x + y * width < sideOfTexture.Width + y * width)
+                        sprite[x + y * width] = sideOfSprite[x + y * width - (width - sideOfTexture.Width) * y];
+                    else if (width - sideOfTexture.Width + width * y <= x + y * width && x + y * width < width + width * y)
+						sprite[x + y * width] = sideOfSprite[sideOfSprite.Length - (x + y * width - (width - sideOfTexture.Width) * (y + 1)) - 1];
+                    else
+						sprite[x + y * width] = new Color(138, 138, 138);
+				}
+			}
+			Texture2D texture = new Texture2D(Globals.VideoCard, width, height);
+			texture.SetData(sprite);
+			return texture;
+		}
 
 		public static Texture2D CreateTexturePixel()
 		{
@@ -76,7 +100,7 @@ namespace StrategyRTS.ProceduralGeneration
 			{
 				Color.White
 			};
-
+			
 			Texture2D texture =
 				new Texture2D(Globals.VideoCard, 1, 1);
 

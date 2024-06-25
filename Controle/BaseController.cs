@@ -6,7 +6,7 @@ namespace StrategyRTS.Controle
 {
     public abstract class BaseController
     {
-        protected GameObject puppet;
+		protected GameObject puppet;
 		public void Attach(GameObject puppet)
 		{
 			this.puppet = puppet;

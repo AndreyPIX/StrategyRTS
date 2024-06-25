@@ -38,7 +38,7 @@ namespace StrategyRTS.Experemental
 					break;
 				}
 			}
-			for (int y = 0; y < graphics.PreferredBackBufferWidth; y++)
+			for (int y = 0; y < graphics.PreferredBackBufferHeight; y++)
 			{
 				if (tempPosition.Y < DrawingCoordinateFirstCell.Y + (y + 1) * map.SizeCell * scale.Y)
 				{

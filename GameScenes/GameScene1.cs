@@ -27,7 +27,7 @@ namespace StrategyRTS.GameScenes
 		}
 		public override void Initialize()
 		{
-			Vector2 scale = new Vector2(0.25f);
+			Vector2 scale = new Vector2(1f);
 
 			GameObject water = new GameObject(textureWater);
 			GameObject sand = new GameObject(textureSand);

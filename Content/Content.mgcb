@@ -121,3 +121,22 @@
 /processorParam:TextureFormat=Color
 /build:png/UserInterface/Frame.png
 
+#begin png/UserInterface/MainFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:png/UserInterface/MainFont.spritefont
+
+#begin png/UserInterface/SideOfTexture.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:png/UserInterface/SideOfTexture.png
+

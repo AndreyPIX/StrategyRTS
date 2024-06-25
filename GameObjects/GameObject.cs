@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using StrategyRTS.Colliders;
 
 namespace StrategyRTS.GameObjects
@@ -101,6 +102,8 @@ namespace StrategyRTS.GameObjects
 			get { return collisionIndex; }
 			set { collisionIndex = value; }
 		}
+
+		
 
 		public GameObject()
         {

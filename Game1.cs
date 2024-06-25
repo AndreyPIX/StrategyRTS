@@ -25,7 +25,7 @@ namespace StrategyRTS
 		{
 			engine = new GameEngine();
 			engine.HasShowCollider = false;
-			gameScene = new GameScene1(engine, graphics);
+			gameScene = new GameSceneForTests(engine, graphics);
 			base.Initialize();
 			gameScene.Initialize();
 		}

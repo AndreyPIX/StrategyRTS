@@ -5,9 +5,9 @@ using StrategyRTS.Menagers;
 
 namespace StrategyRTS.UserInterface
 {
-	public class UserInterfaceSystem : BaseManager<UserInterfaceControlBase>
+	public class UISystem : BaseManager<UIControlBase>
 	{
-		public override void Add(UserInterfaceControlBase obj)
+		public override void Add(UIControlBase obj)
 		{
 			base.Add(obj);
 		}

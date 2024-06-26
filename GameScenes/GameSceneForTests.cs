@@ -22,8 +22,9 @@ namespace StrategyRTS.GameScenes
         }
         public override void Initialize()
         {
-            //button = new UIButton(TextureGenerator.GenerateTexture(200, sideOfTextrue), font, "старт");
-            //engine.Add(button);
+            button = new UIButton(TextureGenerator.GenerateTexture(200, sideOfTextrue), font, "старт");
+            button.SetPosition(new Vector2(250, 250));
+            engine.Add(button);
 		}
         public override void LoadContent(ContentManager content)
         {

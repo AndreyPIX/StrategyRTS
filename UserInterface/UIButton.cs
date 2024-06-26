@@ -22,6 +22,7 @@ namespace StrategyRTS.UserInterface
 		{
 			texture = textrureButtonReleased;
 			isModeСlick = true;
+			this.text = text;
 			this.font = font;
 		}
 		public void StateButton()
@@ -49,6 +50,7 @@ namespace StrategyRTS.UserInterface
 			textPosition.X = texture.Width / 2;
 			textPosition.Y = texture.Height / 2;
 			textPosition -= font.MeasureString(text) / 2;
+			textPosition += position;
 		}
 		public override void Update(GameTime gameTime)
 		{

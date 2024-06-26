@@ -1,8 +1,8 @@
 ﻿
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using StrategyRTS.GameObjects;
-using System.Drawing;
 
 namespace StrategyRTS.UserInterface
 {
@@ -11,9 +11,12 @@ namespace StrategyRTS.UserInterface
 		protected MouseState previousState;
 		protected MouseState currentState;
 		protected SpriteFont font;
-		public void SetFont(SpriteFont font)
+		protected string text;
+		protected Vector2 textPosition;
+		protected Color color;
+		protected void DrawString(SpriteBatch spriteBatch)
 		{
-			this.font = font;
+			spriteBatch.DrawString(font, text, textPosition, color = Color.White);
 		}
 	}
 }

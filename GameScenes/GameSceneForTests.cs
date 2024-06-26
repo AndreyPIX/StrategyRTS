@@ -6,6 +6,7 @@ using StrategyRTS.GameObjects;
 using Microsoft.Xna.Framework.Graphics;
 using StrategyRTS.ProceduralGeneration;
 using StrategyRTS.Colliders;
+using StrategyRTS.UserInterface;
 
 namespace StrategyRTS.GameScenes
 {
@@ -13,7 +14,7 @@ namespace StrategyRTS.GameScenes
     {
 		SpriteFont font;
         Texture2D sideOfTextrue;
-        GameObject button;
+        UIButton button;
 
 		public GameSceneForTests(GameEngine engine, GraphicsDeviceManager graphics) : base(engine, graphics)
         {
@@ -21,8 +22,8 @@ namespace StrategyRTS.GameScenes
         }
         public override void Initialize()
         {
-            button = new GameObject(TextureGenerator.GenerateTexture(200, sideOfTextrue));
-            engine.Add(button);
+            //button = new UIButton(TextureGenerator.GenerateTexture(200, sideOfTextrue), font, "старт");
+            //engine.Add(button);
 		}
         public override void LoadContent(ContentManager content)
         {

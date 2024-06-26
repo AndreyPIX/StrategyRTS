@@ -67,7 +67,7 @@ namespace StrategyRTS.GameObjects
 		}
         public void SetSizeMap(int width, int height)
         {
-            map = new int[height, width, 2]; // 2 - индекс хранит глубину, второй хранит индекс текстуры
+            map = new int[height, width, 2];
 		}
         public void AddCell(GameObject gameObjects)
         {
@@ -76,12 +76,12 @@ namespace StrategyRTS.GameObjects
 		public void CreateMap(int countOctaves = 5)
         {
 			GeneratorWorld world = new GeneratorWorld(map);
-			map = world.LayerGenerate(countOctaves);
+			map = world.ElevationGenerator(countOctaves);
 			map = world.Smoothing(1, 0);
 			map = world.Smoothing(0, 1);
 			map = world.Smoothing(2, 1);
 			map = world.Smoothing(1, 2);
-			map = world.Superimposition();
+			map = world.OverlappingСellsInHeight();
 			map = world.ShoreGeneration();
 		}
 		private void Rendering()

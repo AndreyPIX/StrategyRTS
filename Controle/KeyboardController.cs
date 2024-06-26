@@ -45,7 +45,6 @@ namespace StrategyRTS.Controle
 			foreach (Keys key in keys)
 				delta += ProcessKeyAction(key);
 			puppet.Move(delta);
-			//puppet.Move(new Vector2(-movingSpeed, 0));
 		}
 	}
 }

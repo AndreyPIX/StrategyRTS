@@ -8,7 +8,7 @@ namespace StrategyRTS.ProceduralGeneration
 		{
 			this.map = map;
 		}
-		public int[,,] LayerGenerate(int countOctaves)
+		public int[,,] ElevationGenerator(int countOctaves)
 		{
 			float[,] noise = NoisesGenerator.GeneratePerlinNoiseBilinearlyInterpolated(map.GetLength(0), map.GetLength(1), countOctaves);
 			for (int y = 0; y < map.GetLength(0); y++)
@@ -82,18 +82,18 @@ namespace StrategyRTS.ProceduralGeneration
 			}
 			return map;
 		}
-		public int[,,] Superimposition()
+		public int[,,] OverlappingСellsInHeight()
 		{
 			for (int y = 0; y < map.GetLength(0); y++)
 			{
 				for (int x = 0; x < map.GetLength(1); x++)
 				{
 					if (map[y, x, 0] == 0)
-						map[y, x, 1] = 0; // вода
+						map[y, x, 1] = 0;
 					else if (map[y, x, 0] == 1)
-						map[y, x, 1] = 2; // трава
+						map[y, x, 1] = 2;
 					else
-						map[y, x, 1] = 3; // скала
+						map[y, x, 1] = 3;
 				}
 			}
 			return map;

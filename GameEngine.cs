@@ -63,12 +63,6 @@ namespace StrategyRTS
 		{
 			base.Update(gameTime);
 			KeyboardState state = Keyboard.GetState();
-			if (state.IsKeyDown(Keys.P))
-			{
-				int a = 1;
-				int b = 1;
-				b = a + b;
-			}
 			foreach (var item in controllers)
 				item.Update(gameTime);
 			
@@ -77,7 +71,7 @@ namespace StrategyRTS
 		public override void Draw(SpriteBatch spriteBatch)
 		{
 			base.Draw(spriteBatch);
-			if (hasShowCollider)
+			//if (hasShowCollider)
 			foreach (var collider in colliders)
 			{
 				collider.Draw(spriteBatch);

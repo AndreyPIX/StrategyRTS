@@ -4,7 +4,6 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using StrategyRTS.Colliders;
 using StrategyRTS.Controle;
-using StrategyRTS.Experemental;
 using StrategyRTS.GameObjects;
 using StrategyRTS.ProceduralGeneration;
 using System.Net;
